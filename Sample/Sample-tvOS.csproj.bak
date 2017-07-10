@@ -1,15 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <XIPlatform>tvOS</XIPlatform>
-    <ProjectGuid>{34FD9A81-12D2-44BB-897B-C051590A75AB}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{506BE053-0EEC-40DB-9753-8B622A8D2363}</ProjectGuid>
+    <ProjectTypeGuids>{06FA79CB-D6CD-4721-BB4B-1BD202089C55};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <AssemblyName />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'iPhoneSimulator' ">
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'iPhone' ">
+    <MtouchArch>ARM64</MtouchArch>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin.TVOS" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -17,13 +22,15 @@
     <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonoTouch.Dialog\MonoTouch.Dialog-Unified.csproj">
-      <Project>{2B7FBE6D-3AD0-4805-9E09-4EBA09C0932C}</Project>
-      <Name>MonoTouch.Dialog-Unified</Name>
+    <ProjectReference Include="..\MonoTouch.Dialog\MonoTouch.Dialog-tvOS.csproj">
+      <Project>{BA2F4057-1BDA-4E26-92A0-9FF95F627156}</Project>
+      <Name>MonoTouch.Dialog-tvOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
+    <None Include="Info-tvOS.plist">
+      <LogicalName>Info.plist</LogicalName>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -53,5 +60,5 @@
     <Content Include="sample.json" />
   </ItemGroup>
   <Import Project="Sample.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.CSharp.targets" />
 </Project>
